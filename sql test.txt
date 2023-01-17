@@ -6,7 +6,7 @@ CREATE TABLE Admin(
     contactNo           VARCHAR(20)     NOT NULL,
     email               VARCHAR(50)     NOT NULL,
     password            VARCHAR(100)    NOT NULL,
-
+    image               BLOB            DEFAULT NULL,
     CONSTRAINT admin_PK PRIMARY KEY(admin_username)
 );
 
@@ -36,7 +36,7 @@ CREATE TABLE Users(
 /*--------------------------------------------------------------------------*/
 
 CREATE TABLE Travel_Spot(
-    spotID          VARCHAR(10)         NOT NULL,
+    spotID          INT         	AUTO_INCREMENT,
     spot_name	    VARCHAR(100)	NOT NULL,
     state           VARCHAR(30)                 ,
     address         VARCHAR(100)                ,
@@ -50,11 +50,12 @@ CREATE TABLE Travel_Spot(
 /*--------------------------------------------------------------------------*/
 
 CREATE TABLE Operation_audit(
+    audit_id		INT		AUTO_INCREMENT,
     admin_username      VARCHAR(100)    NOT NULL,
-    spotID              VARCHAR(10)     NOT NULL,
+    spotID              INT	        NOT NULL,
     audit_time          TIMESTAMP               ,
     operation           VARCHAR(20)             ,
-    PRIMARY KEY(admin_username, spotID)         ,
+    PRIMARY KEY(audit_id)		        ,
    
     CONSTRAINT FK_audit_admin FOREIGN KEY(admin_username) REFERENCES Admin(admin_username),
     CONSTRAINT FK_audit_spot FOREIGN KEY(spotID) REFERENCES Travel_Spot(spotID)
@@ -83,7 +84,6 @@ CREATE TABLE Theme(
     CONSTRAINT themeID_PK PRIMARY KEY(themeID)
 );
 
-ALTER TABLE Theme AUTO_INCREMENT =10000;
 
 /*----------------------------------------------------------------------------*/
 
@@ -96,8 +96,6 @@ CREATE TABLE Featured(
     CONSTRAINT featuredID_PK PRIMARY KEY(featuredID)
 );
 
-ALTER TABLE Featured AUTO_INCREMENT =100;
-
 /*---------------------------------------------------------------------------*/
 
 CREATE TABLE Payment(
@@ -108,8 +106,6 @@ CREATE TABLE Payment(
 
     CONSTRAINT paymentID_PK PRIMARY KEY(paymentID)
 );
-
-ALTER TABLE Featured AUTO_INCREMENT =1000;
 
 /*---------------------------------------------------------------------------*/
 
@@ -167,7 +163,7 @@ CREATE TABLE Trip_Joining(
 
 CREATE TABLE Travel_Itinerary(
     tripID          INT             NOT NULL,
-    spotID          VARCHAR(10)     NOT NULL,
+    spotID          INT		    NOT NULL,
     description     VARCHAR(1000)           ,
     duration_stay   INT		            ,
     PRIMARY KEY(tripID, spotID)             ,
