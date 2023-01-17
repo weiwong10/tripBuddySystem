@@ -101,7 +101,6 @@ CREATE TABLE Featured(
 CREATE TABLE Payment(
     paymentID       INT         AUTO_INCREMENT,
     payment_date    DATE        NOT NULL      ,
-    payment_method  VARCHAR(50) NOT NULL      ,
     amount          DOUBLE(6,2)               ,
 
     CONSTRAINT paymentID_PK PRIMARY KEY(paymentID)
@@ -111,6 +110,8 @@ CREATE TABLE Payment(
 
 CREATE TABLE Trip(
     tripID          INT             AUTO_INCREMENT,
+    title	    VARCHAR(300)    NOT NULL,
+    price	    DOUBLE(6,2)	    	    ,
     start_date      DATE            NOT NULL,
     end_date        DATE            NOT NULL,
     duration        INT		            ,
@@ -118,11 +119,14 @@ CREATE TABLE Trip(
     max_people      INT		            ,
     accommodation   VARCHAR(50)     DEFAULT NULL,
     description     VARCHAR(1000)           ,
+    created_date    DATE	    	    ,
+    featured_exp    DATE	    DEFAULT NULL,
     username        VARCHAR(100)    NOT NULL,
     themeID         INT             NOT NULL,
     paymentID       INT             DEFAULT NULL,
     featuredID      INT             DEFAULT NULL,
-
+    image	    BLOB	    DEFAULT NULL,
+    
     CONSTRAINT tripID_PK PRIMARY KEY(tripID),
     CONSTRAINT FK_trip_username FOREIGN KEY(username) REFERENCES Users(username),
     CONSTRAINT FK_trip_themeID FOREIGN KEY(themeID) REFERENCES Theme(themeID),
@@ -165,9 +169,46 @@ CREATE TABLE Travel_Itinerary(
     tripID          INT             NOT NULL,
     spotID          INT		    NOT NULL,
     description     VARCHAR(1000)           ,
-    duration_stay   INT		            ,
     PRIMARY KEY(tripID, spotID)             ,
 
     CONSTRAINT FK_itinerary_tripID FOREIGN KEY(tripID) REFERENCES Trip(tripID),
     CONSTRAINT FK_itinerary_spotID FOREIGN KEY(spotID) REFERENCES Travel_Spot(spotID)
 );
+
+/*-----------------------------------------------------------------------------*/
+
+CREATE OR REPLACE TRIGGER cal_RateUser_trigg
+AFTER UPDATE ON trip_joining
+FOR EACH ROW
+UPDATE users SET average_rate = ( SELECT AVG(rating) 
+                                  FROM trip_joining j, trip t
+                                  WHERE t.username = 
+                                 (SELECT DISTINCT t.username
+                                  FROM users u, trip t
+                                  where tripID = NEW.tripID)
+				AND t.tripID = j.tripID)
+WHERE username = ( SELECT DISTINCT t.username
+                    FROM users u, trip t
+                    where tripID = NEW.tripID);
+
+
+
+CREATE OR REPLACE TRIGGER insert_upper_trigg
+BEFORE INSERT ON travel_spot
+FOR EACH ROW
+SET NEW.spot_name = UPPER(NEW.spot_name);
+
+CREATE OR REPLACE TRIGGER insert_upper2_trigg 
+BEFORE INSERT ON travel_spot 
+FOR EACH ROW 
+SET NEW.state = UPPER(NEW.state);
+
+CREATE OR REPLACE TRIGGER update_upper_trigg 
+BEFORE UPDATE ON travel_spot 
+FOR EACH ROW 
+SET NEW.spot_name = UPPER(NEW.spot_name);
+
+CREATE OR REPLACE TRIGGER update_upper2_trigg
+BEFORE UPDATE ON travel_spot
+FOR EACH ROW
+SET NEW.state = UPPER(NEW.state);
