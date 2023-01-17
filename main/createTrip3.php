@@ -101,7 +101,7 @@ include('tripserver.php');
     </tr>
     <tr>
       <td colspan="3">
-        <button class="btn" type="submit" name="save4" id="save4" >Add More</button>
+        <button class="btn" type="submit" name="save4" id="save4" >Add</button>
       </td>  
     </tr>
     <tr>

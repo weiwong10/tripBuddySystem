@@ -1,59 +1,79 @@
-<?php
-include "../connect.php";
-include("navAdmin/nav_admin.php");
-
-?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Theme</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
- <div>
+<?php
+include ('../connect.php');
+include("navAdmin/nav_admin.php");
+session_start();
+$admin_username = $_SESSION['admin_username'];
+
   
-<table class="table table-light table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Admin Username</th>
-      <th scope="col">Spot ID</th>
-      <th scope="col">Audit Time </th>
-      <th scope="col">Operations</th>
-    </tr>
-  </thead>
-  <tbody>
+?>
+<html lang = "en">
 
+<html lang = "en">
+	<head>
+		
+		<meta charset = "utf-8" />
+		<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+		<link rel = "stylesheet" type = "text/css" href = "bootstrap.css " />
+		<link rel = "stylesheet" type = "text/css" href = "style.css" />
+		<script src="https://kit.fontawesome.com/ba67cd3f0d.js" crossorigin="anonymous"></script>
 
-    <?php
+	<br />
+	<div class = "container-fluid">
+		<div class = "panel panel-default">
+			<div class = "panel-body">
+				<div class = "alert alert-info">Operation Audit</div>
+				<br />
+				<br />
+				<table id = "table" class = "table table-bordered">
+					<thead>
+						<tr>
+							<th><center>Admin Username</th>
+							<th><center>Spot ID</th>
+							<th><center>Audit Time</th>
+							<th><center>Operations</th>						
+						</tr>
+					</thead>
+					<tbody>
+					<?php
+						$query = $conn->query("Select admin_username,spotID,audit_time,operation from operation_audit") or die(mysqli_error());
+						while($fetch = $query->fetch_array()){
+					?>	
+						<tr>
+						<td><center><?php echo $fetch['admin_username']?></td>
+							<td><center><?php echo $fetch['spotID']?></td>
+							<td><center><?php echo $fetch['audit_time']?></td>
+							<td><center><?php echo $fetch['operation']?></td>
+						</tr>
+					<?php
+						}
+					?>	
+					</tbody>
+				</table>
 
-    $sql = "Select admin_username,spotID,audit_time,operation from operation_audit";
-    $result = mysqli_query($conn,$sql);
-    if($result){
-        while($row=mysqli_fetch_assoc($result)){
-            $admin_username = $row['admin_username'];
-            $spotID = $row['spotID'];
-            $audit_time = $row['audit_time'];
-            $operation = $row['operation'];
-            echo '<tr>
-            <th scope="row">'.$admin_username.'</th>
-            <td>'.$spotID.'</td>
-            <td>' .$audit_time.'</td>
-            <td>' .$operation.'</td>
-  
-            <td>
-            </td>
-          </tr>';
-        }
-    }
+			</div>
+		</div>
+	</div>
+	<br />
+	<br />
 
-    
-    ?>
-  </tbody>
-</table>
-</div>
 </body>
-</html>
+<script src = "js/jquery.js"></script>
+<script src = "js/bootstrap.js"></script>
+<script src = "js/jquery.dataTables.js"></script>
+<script src = "js/dataTables.bootstrap.js"></script>	
+<script type = "text/javascript">
+	function confirmationDelete(anchor){
+		var conf = confirm("Are you sure you want to process this form?");
+		if(conf){
+			window.location = anchor.attr("href");
+		}
+	} 
+</script>
 
-<!-- <button class="btn btn-danger"><a href="delete.php? deleteusername='.$username.'"class="text-light">Delete</a></button> -->
+<script type = "text/javascript">
+	$(document).ready(function(){
+		$("#table").DataTable();
+	});
+</script>
+</html>

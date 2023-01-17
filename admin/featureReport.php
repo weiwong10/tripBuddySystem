@@ -67,6 +67,7 @@
     </tr>
 </table>
 </form>
+<br>
 <hr>
 <div class="row">
 <div class="col-xs-12">
@@ -102,7 +103,8 @@
         ?>
                 <h1 class="related">Report</h1>
 		        <hr>
-                        <table style="width: 100%; text-align: center; border: 1px solid #a3a375;">
+                <br>
+                        <table style="margin: auto; width: 70%; text-align: center; border: 1px solid #a3a375;">
                             <tr style="background-color: #999966; color: white;">
                                 <td>Featured ID</td>
                                 <td>Duration</td>

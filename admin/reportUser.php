@@ -40,10 +40,12 @@
     </tr>
 </table>
 </form>
+<br>
 </div>
 </div>
 <hr>
 <div class="row">
+<br>
 <div class="col-xs-12">
     <?php
 
@@ -109,7 +111,7 @@
       };
     </script>
 
-    <div id="top_x_div" style="width: 900px; height: 500px;"></div>
+    <div id="top_x_div" style="margin: auto; width: 700px; height: 500px;"></div>
 
     <?php
         }
@@ -244,7 +246,7 @@
       };
     </script>
 
-    <div id="top_x_div" style="height: 500px;"></div>
+    <div id="top_x_div" style="margin: auto; width: 700px; height: 500px;"></div>
 
     <?php        
         

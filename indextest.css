@@ -160,6 +160,7 @@ html{
    color:#777;
    line-height: 2;
    padding:1rem 0;
+   overflow: hidden;
 }
 
 .home-packages .load-more{

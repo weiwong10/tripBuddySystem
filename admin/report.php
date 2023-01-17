@@ -41,7 +41,7 @@
     </tr>
 </table>
 </form>
-    
+<br>    
 <hr>
 
 <?php

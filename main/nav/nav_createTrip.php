@@ -53,7 +53,7 @@
 					<a href="#">My Profile <i class="fas fa-caret-down"></i></a>
 					<div class="dropdown_menu">
 						<ul>
-							<li><a href="#">Profile</a></li>
+							<li><a href="../customer/profile.php">Profile</a></li>
 							<li><a href="../logout.php">Logout</a></li>
 						</ul>
 				</li>

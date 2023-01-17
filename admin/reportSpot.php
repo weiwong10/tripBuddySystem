@@ -69,6 +69,7 @@
 </form>
 <hr>
 <div class="row">
+<br>
 <div class="col-xs-12">
     <?php
 

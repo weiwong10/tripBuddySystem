@@ -94,14 +94,14 @@
 			<label>Confirm Password</label>
 			<input type="password" name="password_2" class="form-control">
 		  </div>
-		<!--  
+		
 		  <div class="mb-3">
 		    <label class="form-label">Profile Picture</label>
 		    <input type="file" 
 		           class="form-control"
 		           name="image">
 		  </div>
-		-->
+		
 		  <div class="col-md-12 text-center">
 			<button type="submit" class="btn btn-primary" name="reg_user">Register</button>
 		  </div>

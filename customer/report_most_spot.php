@@ -78,6 +78,7 @@
         </tr>
         </table>
     </form>
+    <br><br>
 
         <?php 
             if(isset($_POST['apply']))
@@ -173,7 +174,8 @@
       };
     </script>
 
-    <div id="top_x_div" style="height: 500px;"></div>
+    <div id="top_x_div" style="margin: auto; width: 700px; height: 500px;"></div>
+  <!--  <div id="top_x_div" style="height: 500px;"></div> -->
 
 
         <?php
