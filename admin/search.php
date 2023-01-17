@@ -57,9 +57,6 @@
                 
 
     <?php
-
-            if ($result) {
-                while ($row = mysqli_fetch_assoc($result)) {
                     $spotID = $row['spotID'];
                     $spot_name = $row['spot_name'];
                     $state = $row['state'];
@@ -78,8 +75,7 @@
             <button class="btn btn-primary"><a href="updateTravel.php? updatespotID=' . $spotID . '"class="text-light">Update</a></button>
             </td>
           </tr>';
-                }
-            }
+
             
                 }
                 
