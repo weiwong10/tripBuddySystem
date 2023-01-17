@@ -22,7 +22,7 @@ $admin_username = $_SESSION['admin_username'];
 	<div class = "container-fluid">
 		<div class = "panel panel-default">
 			<div class = "panel-body">
-				<div class = "alert alert-info">Manage Payment</div>
+				<div class = "alert alert-info">Manage Suggestion</div>
 				<br />
 				<br />
 				<table id = "table" class = "table table-bordered">
