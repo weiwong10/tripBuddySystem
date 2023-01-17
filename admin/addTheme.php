@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
 
   $sql="insert into theme (themeID,themeName,description,image) values ('$themeID','$name', '$description', '$image')";
 
-  $image_insert_query = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+  //$image_insert_query = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
     $result = mysqli_query($conn, $sql);
     if ($conn->connect_error) {
