@@ -1,0 +1,13 @@
+DROP TABLE Travel_Itinerary;
+DROP TABLE Trip_Joining;
+DROP TABLE Transportation_Trip;
+DROP TABLE Trip;
+DROP TABLE Payment;
+DROP TABLE Featured;
+DROP TABLE Theme;
+DROP TABLE Transportation;
+DROP TABLE Operation_audit;
+DROP TABLE Travel_Spot;
+DROP TABLE Users;
+DROP TABLE Admin;
+

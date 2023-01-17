@@ -1,0 +1,139 @@
+.trip_details .tripDetails{
+    font-size: 30px;
+    text-align: center;
+
+}
+
+.trip_details{
+	max-width: 1400px;
+	width: 70%;
+	margin: 30px auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.trip_details .trip{
+	font-size: 30px;
+    text-align: center;
+}
+
+.trip_details .cards{
+	height: 400px;
+	border: 2px solid lightgray;
+	margin: 20px;
+	display: flex;
+}
+
+.trip_details .cards .caption{
+	line-height: 3em;
+	margin-left: 30px;
+	position: relative;
+	width: 75%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.trip_details .cards .caption p{
+	font-size: 30px;
+}
+
+.details{
+	max-width: 1000px;
+	width: 50%;
+	margin: 30px auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.details .spotname{
+	font-size: 30px;
+}
+
+.details .cards{
+	height: 200px;
+	border: 2px solid lightgray;
+	margin: 20px;
+	display: flex;
+	border-radius: 20px;
+}
+
+.details .cards .images{
+	width: 30%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.details .cards .images img{
+	width:100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.details .cards .caption{
+	line-height: 1em;
+	margin-left: 30px;
+	position: relative;
+	width: 75%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.details .cards .caption .feedback{
+	line-height: 3em;
+}
+
+.details .cards .caption p{
+	font-size: 15px;
+}
+
+.details .cards .caption button{
+	background-color: white;
+	border: 2px solid #0073ff;
+	padding: 1%;
+	width: 15%;
+	cursor: pointer;
+	font-weight: bold;
+	transition-duration: 0.3s;
+	position: absolute;
+	bottom: 8px;
+  	right: 16px;
+}
+
+#back{
+	margin-top: 20px;
+    margin-left: 40%;
+    margin-bottom: 30px;
+	display: inline-block;
+	padding: 10px 30px;
+	color:#334;
+	font-size: 16px;
+	background-color: white;
+	border: 2px solid #0073ff;
+	width: 20%;
+	cursor: pointer;
+	font-weight: bold;
+	position: relative;
+	transition-duration: 0.3s;
+    text-align: center;
+
+}
+
+#back:hover{
+	background-color: #0073ff;
+    border-color: #0073ff;
+    color:#fff;
+}
+
+#back a {
+	text-decoration: none;
+	color:#334;
+}
+
+#back:hover a{
+	color: #fff;
+}

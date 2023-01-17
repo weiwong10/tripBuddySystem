@@ -1,0 +1,42 @@
+body{
+	background: #eee;
+}
+
+#title{
+	text-align: center;
+
+}
+
+#frm{
+	border: solid gray 2px;
+	width: 100px;
+	border-radius: 5px;
+	margin: 100px auto;
+	background: white;
+
+}
+
+#btn{
+	color: #fff;
+	background: #337ab7;
+	padding: 5px;
+	margin-left: 69%;
+}
+
+.register{
+	a:link{
+	color:blue;
+	}
+	
+	a:visited{
+	color:maroon;
+	}
+
+	a:hower{
+	color:cyan;
+	}
+
+	a:active{
+	color:yellow;
+	}
+}

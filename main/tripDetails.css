@@ -1,0 +1,247 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	text-decoration: none;
+	color: black;	
+}
+
+html{
+	font-size: 62.5%;
+}
+
+.trip_details .tripDetails{
+    font-size: 30px;
+    text-align: center;
+
+}
+
+.trip_details{
+	max-width: 1500px;
+	width: 80%;
+	margin: 30px auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.trip_details .trip{
+	font-size: 30px;
+    text-align: center;
+}
+
+.trip_details .cards{
+	height: 300px;
+	border: 2px solid lightgray;
+	margin: 20px;
+	display: flex;
+}
+
+.trip_details .cards .caption{
+	line-height: 3em;
+	margin-left: 30px;
+	position: relative;
+	width: 75%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.trip_details .cards .caption p{
+	font-size: 20px;
+}
+
+.details{
+	max-width: 1500px;
+	width: 80%;
+	margin: 30px auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.details .trip{
+	font-size: 30px;
+    text-align: center;
+}
+
+.details .cards{
+	height: 300px;
+	border: 2px solid lightgray;
+	margin: 20px;
+	display: flex;
+}
+
+.details .cards .images{
+	width: 50%;
+}
+
+.details .cards .images img{
+	width:100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.details .cards .caption{
+	line-height: 3em;
+	margin-left: 30px;
+	position: relative;
+	width: 75%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.details .cards .caption p{
+	font-size: 1.5rem;
+}
+
+.details .cards .caption button{
+	background-color: white;
+	border: 2px solid #0073ff;
+	padding: 1%;
+	width: 15%;
+	cursor: pointer;
+	font-weight: bold;
+	transition-duration: 0.3s;
+	position: absolute;
+	bottom: 8px;
+  	right: 16px;
+}
+
+
+
+.btn{
+    display: inline-block;
+    background: white;
+    margin-top: 1rem;
+    color: black;
+    font-size: 1.7rem;
+    padding:1rem 3rem;
+    cursor: pointer;
+    border: 2px solid #0073ff;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding:5px 20px;
+  }
+  
+.container .heading{
+    font-size: 40px;
+    margin-bottom: 20px;
+    color:#334;
+  }
+  
+  .container .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+    gap:20px;
+  }
+  
+  .container .box-container .box{
+    background-color: #fff;
+    padding:20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  }
+  
+  
+  .container .box-container .box .image{
+    margin-bottom: 20px;
+    overflow: hidden;
+    height: 150px;
+    border-radius: 5px;
+  }
+  
+  .container .box-container .box .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+
+#back{
+	margin-top: 5px;
+    margin-left: 40%;
+	margin-bottom: 10px;
+	display: inline-block;
+	padding: 10px 30px;
+	color:#334;
+	font-size: 16px;
+	background-color: white;
+	border: 2px solid black;
+	width: 20%;
+	cursor: pointer;
+	font-weight: bold;
+	position: relative;
+	transition-duration: 0.3s;
+    text-align: center;
+
+}
+
+#back:hover{
+	background-color: #0073ff;
+    border-color: #0073ff;
+    color:#fff;
+}
+
+#back a {
+	text-decoration: none;
+	color:#334;
+}
+
+#back a:hover{
+	color:#fff;
+}
+
+main{
+	max-width: 1500px;
+	width: 80%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	
+}
+
+main .card{
+	max-width: 300px;
+	flex: 1 1 210px;
+	text-align: center;
+	height: 200px;
+	border: 1px solid lightgray;
+	margin: 10px;
+}
+
+main .card .image{
+	height: 50%;
+	margin-bottom: 20px;
+}
+
+main .card .image img{
+	width: 100%;
+	height: 100%;
+
+	object-fit: cover;
+}
+
+main .card .caption{
+	padding-left: 1em;
+	padding-top: 1em;
+	text-align: center;
+	line-height: 3px;
+	height: 5%;
+}
+
+main .card .caption p{
+	font-size: 2rem;
+}
+
+
+main .card a{
+	width: 50%;
+}

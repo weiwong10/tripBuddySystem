@@ -1,0 +1,92 @@
+<?php
+	include "../connect.php";
+	session_start();
+    $username = $_SESSION['username'];
+    $last_id = $_SESSION['update'];
+    $spotID = $_POST['spotID'];
+
+    if (isset($_POST['save2'])) 
+    {
+        $tripID = $_POST['tripID'];
+        $spotID = $_POST['spotID'];
+        $description = $_POST['description'];
+
+        if(empty($description))
+        {
+            echo "<script>alert('Please write the description!');</script>";
+            echo"<meta http-equiv='refresh' content='0; url=editAddTrip.php'/>";
+        }
+        else
+        {
+            mysqli_query($conn, "INSERT INTO travel_itinerary (tripID, spotID, description) VALUES ('$last_id', '$spotID', '$description')");
+
+            header("location: editTrip2.php");
+        } 
+    }
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="tripDetails.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<title>Join Trip</title>
+</head>
+<body>
+    <?php include("nav/nav_createTrip.php")?>
+
+    <section class="details">
+        
+        <h1 class="trip">Travel Spot</h1>
+		<hr>
+        <?php
+			$sql = "select DISTINCT spot_name, image FROM travel_spot WHERE spotID = '$spotID'";
+
+			$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+			while ($row = mysqli_fetch_assoc($result)) {
+		
+		?>
+
+        <form action="" method="post">
+
+		<div class="cards">
+			<div class="images">
+				<?php 
+					echo '<img src="data:image/jpeg;base64,'.base64_encode($row['image']).'"/>';
+				?>
+			</div>
+			<div class="caption">
+                <p class="description">
+
+                <b><h2><?php echo $row["spot_name"];?></h2></b>
+
+                </p>
+				<p class="description">
+
+                    <h3>Description: </h3>
+                    <textarea rows="5" cols="10" name="description" placeholder="  Description" style="font-size: 18px;"></textarea>
+                    <input type="hidden" name="tripID" value="<?php echo $last_id; ?>">
+                    <input type="hidden" name="spotID" value="<?php echo $spotID; ?>">
+                    <br>
+				</p>
+			</div>
+            
+		</div>
+
+        <button type="submit" name="save2" id="back">Next</button>
+        <div id="back"><a href="editAddTrip.php">Back</a></div>
+
+        </form>
+
+
+	<?php 
+		}
+
+	?>
+	</section>
+
+</body>
+</html>

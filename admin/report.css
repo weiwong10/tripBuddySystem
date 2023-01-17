@@ -1,0 +1,101 @@
+h1 {
+  text-align: center;
+  font-family: Calibri;
+  font-size: 40px;
+  color: #6b6b47;
+}
+
+.center_table {
+  margin: auto;
+  width: 40%;
+  border-radius: 15px;
+  border: 3px solid #999966;
+  padding: 10px;
+  background-color: #a3a375;
+}
+
+label {
+  font-family: Helvetica;
+  padding: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input::file-selector-button {
+    font-weight: bold;
+    background-color: #33adff;
+    color: white;
+    padding: 10px;
+    border: thin solid #33adff;
+    border-radius: 3px;
+    width: 30%;
+}
+
+input::file-selector-button:hover {
+  background-color: #008ae6;
+  color: white;
+}
+
+th {
+  color: white;
+  font-family: Calibri;
+}
+
+.btn {
+  background-color: #5c5c3d;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #3d3d29;
+  color: white;
+}
+
+.radio_lable {
+  font-size: 15px;
+  line-height: 2;
+  display: grid;
+  grid-template-columns: 30px auto;
+  gap: 3px;
+}
+
+.alert {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 2px solid #ff9900;
+  padding: 10px;
+  color: white;
+  background-color: #ffa31a;
+}

@@ -1,0 +1,177 @@
+/*----------------------------------------------------------------------*/
+
+CREATE TABLE Admin(
+    admin_username      VARCHAR(100)    NOT NULL,
+    name                VARCHAR(100)    NOT NULL,
+    contactNo           VARCHAR(20)     NOT NULL,
+    email               VARCHAR(50)     NOT NULL,
+    password            VARCHAR(100)    NOT NULL,
+
+    CONSTRAINT admin_PK PRIMARY KEY(admin_username)
+);
+
+
+/*-----------------------------------------------------------------------*/
+
+CREATE TABLE Users(
+    username            VARCHAR(100)    NOT NULL,
+    name                VARCHAR(100)    NOT NULL,
+    gentle              VARCHAR(1)              ,
+    dob                 DATE                    ,
+    address             VARCHAR(100)            , 
+    contactNo           VARCHAR(20)     NOT NULL,
+    email               VARCHAR(50)     NOT NULL,
+    icNo                VARCHAR(20)     NOT NULL,
+    password            VARCHAR(100)    NOT NULL,
+    status_acc          VARCHAR(10)     DEFAULT 'Active',
+    average_rate        DOUBLE(2,1)     DEFAULT 0,
+    image               BLOB            DEFAULT NULL,
+    admin_username      VARCHAR(100)    DEFAULT NULL,
+
+    CONSTRAINT users_PK PRIMARY KEY(username),
+    CONSTRAINT FK_user_admin FOREIGN KEY(admin_username) REFERENCES Admin(admin_username)
+);
+
+
+/*--------------------------------------------------------------------------*/
+
+CREATE TABLE Travel_Spot(
+    spotID          VARCHAR(10)         NOT NULL,
+    spot_name	    VARCHAR(100)	NOT NULL,
+    state           VARCHAR(30)                 ,
+    address         VARCHAR(100)                ,
+    description     VARCHAR(1000)   		,
+    image	    BLOB		DEFAULT NULL,
+
+    CONSTRAINT travel_spot_PK PRIMARY KEY(spotID)            
+);
+
+
+/*--------------------------------------------------------------------------*/
+
+CREATE TABLE Operation_audit(
+    admin_username      VARCHAR(100)    NOT NULL,
+    spotID              VARCHAR(10)     NOT NULL,
+    audit_time          TIMESTAMP               ,
+    operation           VARCHAR(20)             ,
+    PRIMARY KEY(admin_username, spotID)         ,
+   
+    CONSTRAINT FK_audit_admin FOREIGN KEY(admin_username) REFERENCES Admin(admin_username),
+    CONSTRAINT FK_audit_spot FOREIGN KEY(spotID) REFERENCES Travel_Spot(spotID)
+   
+);
+
+
+/*----------------------------------------------------------------------------*/
+
+CREATE TABLE Transportation(
+    transportationID    INT         AUTO_INCREMENT,
+    trans_type          VARCHAR(20) NOT NULL      ,
+
+    CONSTRAINT transportationID_PK PRIMARY KEY(transportationID)
+);
+
+
+/*----------------------------------------------------------------------------*/
+
+CREATE TABLE Theme(
+    themeID     INT             AUTO_INCREMENT,
+    themeName   VARCHAR(20)     NOT NULL      ,
+    description VARCHAR(1000)		      ,
+    image	BLOB		DEFAULT NULL  ,           
+
+    CONSTRAINT themeID_PK PRIMARY KEY(themeID)
+);
+
+ALTER TABLE Theme AUTO_INCREMENT =10000;
+
+/*----------------------------------------------------------------------------*/
+
+CREATE TABLE Featured(
+    featuredID      INT             AUTO_INCREMENT,
+    duration        INT		    NOT NULL,
+    price           DOUBLE(6,2)     NOT NULL,
+    description     VARCHAR(1000)           ,
+    
+    CONSTRAINT featuredID_PK PRIMARY KEY(featuredID)
+);
+
+ALTER TABLE Featured AUTO_INCREMENT =100;
+
+/*---------------------------------------------------------------------------*/
+
+CREATE TABLE Payment(
+    paymentID       INT         AUTO_INCREMENT,
+    payment_date    DATE        NOT NULL      ,
+    payment_method  VARCHAR(50) NOT NULL      ,
+    amount          DOUBLE(6,2)               ,
+
+    CONSTRAINT paymentID_PK PRIMARY KEY(paymentID)
+);
+
+ALTER TABLE Featured AUTO_INCREMENT =1000;
+
+/*---------------------------------------------------------------------------*/
+
+CREATE TABLE Trip(
+    tripID          INT             AUTO_INCREMENT,
+    start_date      DATE            NOT NULL,
+    end_date        DATE            NOT NULL,
+    duration        INT		            ,
+    current_people  INT       	   DEFAULT 0,
+    max_people      INT		            ,
+    accommodation   VARCHAR(50)     DEFAULT NULL,
+    description     VARCHAR(1000)           ,
+    username        VARCHAR(100)    NOT NULL,
+    themeID         INT             NOT NULL,
+    paymentID       INT             DEFAULT NULL,
+    featuredID      INT             DEFAULT NULL,
+
+    CONSTRAINT tripID_PK PRIMARY KEY(tripID),
+    CONSTRAINT FK_trip_username FOREIGN KEY(username) REFERENCES Users(username),
+    CONSTRAINT FK_trip_themeID FOREIGN KEY(themeID) REFERENCES Theme(themeID),
+    CONSTRAINT FK_trip_paymentID FOREIGN KEY(paymentID) REFERENCES Payment(paymentID),
+    CONSTRAINT FK_trip_featuredID FOREIGN KEY(featuredID) REFERENCES Featured(featuredID)
+);
+
+
+/*-----------------------------------------------------------------------------*/
+
+CREATE TABLE Transportation_Trip(
+    transportationID    INT             AUTO_INCREMENT,
+    tripID              INT             NOT NULL      ,
+    description         VARCHAR(1000)                 ,
+    carPlateNo          VARCHAR(20)     DEFAULT NULL  ,
+    PRIMARY KEY(transportationID, tripID)             ,
+
+    CONSTRAINT FK_trans_transID FOREIGN KEY(transportationID) REFERENCES Transportation(transportationID),
+    CONSTRAINT FK_trans_tripID FOREIGN KEY(tripID) REFERENCES Trip(tripID)
+);
+
+
+/*-----------------------------------------------------------------------------*/
+
+CREATE TABLE Trip_Joining(
+    username    VARCHAR(100)    NOT NULL,
+    tripID      INT             NOT NULL,
+    feedback    VARCHAR(1000)           ,
+    rating      INT	       DEFAULT 5,
+    PRIMARY KEY(username, tripID)       ,
+
+    CONSTRAINT FK_join_username FOREIGN KEY(username) REFERENCES Users(username),
+    CONSTRAINT FK_join_tripID FOREIGN KEY(tripID) REFERENCES Trip(tripID)
+);
+
+
+/*------------------------------------------------------------------------------*/
+
+CREATE TABLE Travel_Itinerary(
+    tripID          INT             NOT NULL,
+    spotID          VARCHAR(10)     NOT NULL,
+    description     VARCHAR(1000)           ,
+    duration_stay   INT		            ,
+    PRIMARY KEY(tripID, spotID)             ,
+
+    CONSTRAINT FK_itinerary_tripID FOREIGN KEY(tripID) REFERENCES Trip(tripID),
+    CONSTRAINT FK_itinerary_spotID FOREIGN KEY(spotID) REFERENCES Travel_Spot(spotID)
+);

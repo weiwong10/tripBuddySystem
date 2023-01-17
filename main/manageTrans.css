@@ -1,0 +1,119 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	text-decoration: none;
+	color: black;	
+}
+
+html{
+	font-size: 62.5%;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding:25px 20px;
+  }
+
+.container .related{
+	text-align: left;
+}
+
+  .container .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 350px));
+    gap:20px;
+  }
+  
+  .container .box-container .box{
+    background-color: #fff;
+    padding:20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  }
+  
+  .container .box-container .box .content h3{
+    font-size: 20px;
+    color:#334;
+  }
+  
+  .container .box-container .box .content p{
+    font-size: 15px;
+    color:#777;
+    line-height: 2;
+    padding:15px 0;
+    height: 90px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+ 
+  .container .box-container .box .content .btn{
+    display: inline-block;
+    padding:10px 30px;
+    border:1px solid #334;
+    color:#334;
+    font-size: 16px;
+  }
+  
+  .container .box-container .box .content .btn:hover{
+    background-color: #0073ff;
+    border-color: #0073ff;
+    color:#fff;
+  }
+
+  @media (max-width:450px){
+
+    .container .heading{
+      font-size: 25px;
+    }
+  
+    .container .box-container{
+      grid-template-columns: 1fr;
+    }
+  
+    .container .box-container .box .image{
+      height: 200px;
+    }
+  
+    .container .box-container .box .content p{
+      font-size: 12px;
+    }
+  
+    .container .box-container .box .content .icons span{
+      font-size: 12px;
+    }
+  
+  }
+
+#home{
+	margin-left: 46%;
+	margin-bottom: 10px;
+  display: inline-block;
+  padding: 10px 30px;
+  border:1px solid #334;
+  color:#334;
+  font-size: 16px;
+  background-color: #fff;
+  cursor: pointer;
+  position:relative;
+  text-align: center;
+}
+  
+#home:hover{
+    background-color: #0073ff;
+    border-color: #0073ff;
+    color:#fff;
+}
+
+#home a{
+	text-decoration: none;
+	color:#334;
+}
+
+#home:hover a{
+	color: #fff;
+}
