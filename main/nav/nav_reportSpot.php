@@ -47,7 +47,7 @@
 					</div>
 				</li>		
 				<li>
-					<a href="suggest.php">Submit Suggestion</a>
+					<a href="../main/suggest.php">Submit Suggestion</a>
 				</li>
 				<li>
 					<a href="#">My Profile <i class="fas fa-caret-down"></i></a>
