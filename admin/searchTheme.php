@@ -34,25 +34,24 @@
 
                 <h1 class="heading">Search Result</h1>
                 <div class="box-container">
+
+                <table class="table table-light table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">Theme ID</th>
+                        <th scope="col">Theme Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Operations</th>
+                        </tr>
+                    </thead>
+                <tbody>
             
                 <?php
 
                 while ($row = mysqli_fetch_assoc($result)) {
 
                     ?>
-     <table class="table table-light table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Theme ID</th>
-      <th scope="col">Theme Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Image</th>
-      <th scope="col">Operations</th>
-    </tr>
-  </thead>
-  <tbody>
-
-
     <?php
 
                     // $sql = "Select themeID,themeName,description from theme";

@@ -35,26 +35,25 @@
                 <h1 class="heading">Search Result</h1>
                 <div class="box-container">
             
+                <table class="table table-light table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">SpotID</th>
+                      <th scope="col">Spot Name</th>
+                      <th scope="col">State</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Image</th>
+                      <th scope="col">Operations</th>
+                    </tr>
+                  </thead>
+                  <tbody>
                 <?php
 
                 while ($row = mysqli_fetch_assoc($result)) 
                 {
 
-                    ?>
-     <table class="table table-light table-striped">
-  <thead>
-    <tr>
-      <th scope="col">SpotID</th>
-      <th scope="col">Spot Name</th>
-      <th scope="col">State</th>
-      <th scope="col">Address</th>
-      <th scope="col">Description</th>
-      <th scope="col">Image</th>
-      <th scope="col">Operations</th>
-    </tr>
-  </thead>
-  <tbody>
-                
+                    ?>    
 
     <?php
                     $spotID = $row['spotID'];
