@@ -187,6 +187,14 @@
 	?>
 	</section>
 
+	<?php
+	$checktransport = "SELECT trans_type, r.description, carPlateNo FROM trip t, transportation_trip r, transportation a WHERE t.tripID = r.tripID AND r.transportationID = a.transportationID AND t.tripID = '".$tripID."'";
+
+	$checkresult = mysqli_query($conn,$checktransport) or die(mysqli_error($conn));
+
+	if(mysqli_num_rows($checkresult)){
+	?>
+
     <section class="details">
         
         <h1 class="trip">Transportation</h1>
@@ -227,6 +235,10 @@
 
 	?>
 	</section>
+
+	<?php
+	}
+	?>
 
     <div>
         <form action="bookTrip.php" method="post">
