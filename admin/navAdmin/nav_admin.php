@@ -34,6 +34,9 @@
 					 <a href="travelSpot.php">Travel Spot</i></a>
 				</li>
 				<li>
+					 <a href="checkSuggest.php">Suggestion</i></a>
+				</li>
+				<li>
 					<a href="#">My Profile <i class="fas fa-caret-down"></i></a>
 					<div class="dropdown_menu">
 						<ul>

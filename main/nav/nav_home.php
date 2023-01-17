@@ -38,6 +38,9 @@
 							<li><a href="../customer/report_most_spot.php">Most Visited Travel Spot</a></li>
 						</ul>
 					</div>
+				</li>
+				<li>
+					<a href="suggest.php">Submit Suggestion</a>
 				</li>	
 				<li>
 					<a href="#">My Profile <i class="fas fa-caret-down"></i></a>

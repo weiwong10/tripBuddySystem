@@ -38,6 +38,9 @@
 					</div>
 				</li>
 				<li>
+					<a href="suggest.php">Submit Suggestion</a>
+				</li>
+				<li>
 					<a href="paymentHistory.php">Payment History</a>			
 				</li>			
 				<li>

@@ -164,16 +164,28 @@
                     </form>
                     
                     <?php
-                    } 
-                                        
+                    }                         
                     else {
-                    ?>
-                    <form action="tripDetails.php" method="post">
-                        <input type="hidden" name="tripID" value="<?php echo $row["tripID"]; ?>">						
-                        <button class="btn" type="submit">Book Now</button>
-                    </form>
-                    <?php
+                        $check_join = "SELECT DISTINCT tripID FROM trip_joining WHERE username = '$username' AND tripID = '$hostTrip';";
+                        $join_result = mysqli_query($conn,$check_join) or die(mysqli_error($conn));
+                        
+                        if(mysqli_num_rows($join_result) >0){
+                ?>
+                        <form action="cancelTripDetails.php" method="post">
+                            <input type="hidden" name="tripID" value="<?php echo $row["tripID"]; ?>"> 					
+                            <button class="btn" type="submit">Cancel Booking</button>
+                        </form>
+                <?php
+                        }else{
+                ?>
+                        <form action="tripDetails.php" method="post">
+                            <input type="hidden" name="tripID" value="<?php echo $row["tripID"]; ?>"> 					
+                            <button class="btn" type="submit">Book Now</button>
+                        </form>
+                <?php            
+                        }
                     }
+
                     ?>
                     <div class="icons">
                     <span><i class="fa-solid fa-calendar-days"></i><?php echo $row["start_date"]?></span>

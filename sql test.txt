@@ -177,6 +177,21 @@ CREATE TABLE Travel_Itinerary(
 
 /*-----------------------------------------------------------------------------*/
 
+CREATE TABLE Suggest_form(
+    suggestID   INT             AUTO_INCREMENT,
+    spot_name   VARCHAR(100)    NOT NULL      ,
+    state	VARCHAR(30)		      ,
+    address	VARCHAR(100)    	      ,
+    message	VARCHAR(1000)	DEFAULT NULL  ,
+    status	VARCHAR(30)		      ,           
+    username    VARCHAR(100)    NOT NULL      ,
+
+    CONSTRAINT suggestID_PK PRIMARY KEY(suggestID),
+    CONSTRAINT FK_suggest_username FOREIGN KEY(username) REFERENCES Users(username)
+);
+
+/*-----------------------------------------------------------------------------*/
+
 CREATE OR REPLACE TRIGGER cal_RateUser_trigg
 AFTER UPDATE ON trip_joining
 FOR EACH ROW

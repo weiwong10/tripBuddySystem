@@ -47,6 +47,9 @@
 					</div>
 				</li>
 				<li>
+					<a href="suggest.php">Submit Suggestion</a>
+				</li>
+				<li>
 					<a href="#">My Profile <i class="fas fa-caret-down"></i></a>
 					<div class="dropdown_menu">
 						<ul>
